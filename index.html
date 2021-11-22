@@ -34,7 +34,7 @@
 						<li><a href="#two">Overall Data Comparison</a></li>
 						<li><a href="#three">Bar Charts</a></li>
 						<li><a href="#four">Global vs. USA</a></li>
-						<li><a href="#five">TreeMap</a></li>
+						<li><a href="#five">Dot Plot</a></li>
 						<li><a href="#six">HeatMap</a></li>
 					</ul>
 				</nav>
@@ -75,8 +75,9 @@
 								<div class="container">
 									<h3>Overall Change in the World</h3>
 									<p>A Line chart that shows the overall transportation change in the world from January 13, 2020 to now.</p>
+									<div id="line_chart"></div>
 									<script data-require="d3@3.5.3" data-semver="3.5.3" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-
+									<link rel="stylesheet" href="charts/page2/line_chart.css" type="text/css">
 									<script src="charts/page2/line_chart.js"></script>
 								</div>
 
@@ -93,35 +94,37 @@
 						<!-- Three -->
 							<section id="three">
 								<div class="container">
-									<h3>Global vs. USA</h3>
-									<p>The following bar charts illustrate the change in transit globally and in the US</p>
-									<div class="features">
-										<script src="https://d3js.org/d3.v6.js"></script>
-										<div id="global_bar_chart"></div>
-										<script src="charts/page3/bar_charts.js"></script>
-									</div>
+									<h3>Line charts for individual countries</h3>
+
 								</div>
 							</section>
 
 						<!-- Four -->
 							<section id="four">
 								<div class="container">
-									<h3>Contact Me</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
+<!--									<h3>Contact Me</h3>-->
+<!--									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>-->
+<!--									<form method="post" action="#">-->
+<!--										<div class="row gtr-uniform">-->
+<!--											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>-->
+<!--											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>-->
+<!--											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>-->
+<!--											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>-->
+<!--											<div class="col-12">-->
+<!--												<ul class="actions">-->
+<!--													<li><input type="submit" class="primary" value="Send Message" /></li>-->
+<!--													<li><input type="reset" value="Reset Form" /></li>-->
+<!--												</ul>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</form>-->
+									<h3>Global vs. USA</h3>
+									<p>The following bar charts illustrate the change in transit globally and in the US</p>
+									<div class="features">
+										<script src="https://d3js.org/d3.v6.js"></script>
+										<div id="global_bar_chart"></div>
+<!--										<script src="charts/page3/bar_charts.js"></script>-->
+									</div>
 								</div>
 							</section>
 

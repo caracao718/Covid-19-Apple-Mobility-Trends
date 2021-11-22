@@ -1,4 +1,3 @@
-
 var myData = "date	driving 	walking 	transit\n\
 20200113	6300	6300	2700\n\
 20200213	6926	7202	2947\n\
@@ -27,10 +26,10 @@ var margin = {
         top: 20,
         right: 80,
         bottom: 30,
-        left: 50
+        left: 80
     },
-    width = 900 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 700 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
 
 var parseDate = d3.time.format("%Y%m%d").parse;
 
@@ -59,7 +58,7 @@ var line = d3.svg.line()
         return y(d.temperature);
     });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#line_chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -145,12 +144,12 @@ svg.append("g")
     .style("text-anchor", "end")
     .text("Direction Requests");
 
-var city = svg.selectAll(".city")
+var transit_type = svg.selectAll(".transit")
     .data(cities)
     .enter().append("g")
-    .attr("class", "city");
+    .attr("class", "transit_type");
 
-city.append("path")
+transit_type.append("path")
     .attr("class", "line")
     .attr("d", function(d) {
         return line(d.values);
@@ -159,7 +158,7 @@ city.append("path")
         return color(d.name);
     });
 
-city.append("text")
+transit_type.append("text")
     .datum(function(d) {
         return {
             name: d.name,

@@ -1,10 +1,10 @@
 // set the dimensions and margins of the graph
-const margin = {top: 10, right: 30, bottom: 20, left: 50},
+var margin = {top: 10, right: 30, bottom: 20, left: 50},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-const svg = d3.select("#global_bar_chart")
+var svg = d3.select("#global_bar_chart")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -15,15 +15,15 @@ const svg = d3.select("#global_bar_chart")
 d3.csv("./charts/page3/USA_bar_data.csv").then( function(data) {
 
     // List of subgroups = header of the csv files = soil condition here
-    const subgroups = data.columns.slice(1)
+    var subgroups = data.columns.slice(1)
 
     // List of groups = species here = value of the first column called group -> I show them on the X axis
-    const groups = data.map(d => d.group)
+    var groups = data.map(d => d.group)
 
     console.log(groups)
 
     // Add X axis
-    const x = d3.scaleBand()
+    var x = d3.scaleBand()
         .domain(groups)
         .range([0, width])
         .padding([0.2])
@@ -32,20 +32,20 @@ d3.csv("./charts/page3/USA_bar_data.csv").then( function(data) {
         .call(d3.axisBottom(x).tickSize(0));
 
     // Add Y axis
-    const y = d3.scaleLinear()
+    var y = d3.scaleLinear()
         .domain([0, 12000])
         .range([ height, 0 ]);
     svg.append("g")
         .call(d3.axisLeft(y));
 
     // Another scale for subgroup position?
-    const xSubgroup = d3.scaleBand()
+    var xSubgroup = d3.scaleBand()
         .domain(subgroups)
         .range([0, x.bandwidth()])
         .padding([0.05])
 
     // color palette = one color per subgroup
-    const color = d3.scaleOrdinal()
+    var color = d3.scaleOrdinal()
         .domain(subgroups)
         .range(['#e41a1c','#377eb8','#4daf4a'])
 
