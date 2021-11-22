@@ -9,7 +9,14 @@
 		<title>Covid-19 Apple Mobility Trends</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<script src="https://d3js.org/d3.v6.js"></script>
+		<script data-require="d3@3.5.3" data-semver="3.5.3" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.line_chart {
+
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -23,10 +30,12 @@
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="#one" class="active">Introduction</a></li>
-						<li><a href="#two">Line Charts</a></li>
+						<li><a href="#one" class="active">Introduction and Timeline</a></li>
+						<li><a href="#two">Overall Data Comparison</a></li>
 						<li><a href="#three">Bar Charts</a></li>
-						<li><a href="#four">Contact</a></li>
+						<li><a href="#four">Global vs. USA</a></li>
+						<li><a href="#five">TreeMap</a></li>
+						<li><a href="#six">HeatMap</a></li>
 					</ul>
 				</nav>
 				<footer>
@@ -64,46 +73,32 @@
 						<!-- Two -->
 							<section id="two">
 								<div class="container">
-									<h3>Things I Can Do</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer lorem ipsum dolor sit amet.</p>
-									<ul class="feature-icons">
-										<li class="icon solid fa-code">Write all the code</li>
-										<li class="icon solid fa-cubes">Stack small boxes</li>
-										<li class="icon solid fa-book">Read books and stuff</li>
-										<li class="icon solid fa-coffee">Drink much coffee</li>
-										<li class="icon solid fa-bolt">Lightning bolt</li>
-										<li class="icon solid fa-users">Shadow clone technique</li>
-									</ul>
+									<h3>Overall Change in the World</h3>
+									<p>A Line chart that shows the overall transportation change in the world from January 13, 2020 to now.</p>
+									<script data-require="d3@3.5.3" data-semver="3.5.3" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+
+									<script src="charts/page2/line_chart.js"></script>
+								</div>
+
+								<div class="container">
+									<p>An animated Pie chart that shows the change in Transit percentage between 2020 and 2021</p>
+									<script src="https://d3js.org/d3.v6.js"></script>
+										<button onclick="update(data1)">2020</button>
+										<button onclick="update(data2)">2021</button>
+									<div id="pie_chart"></div>
+									<script src="charts/page2/pie_charts.js"></script>
 								</div>
 							</section>
 
 						<!-- Three -->
 							<section id="three">
 								<div class="container">
-									<h3>A Few Accomplishments</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<h3>Global vs. USA</h3>
+									<p>The following bar charts illustrate the change in transit globally and in the US</p>
 									<div class="features">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Possibly broke spacetime</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Terraformed a small moon</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Snapped dark matter in the wild</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
+										<script src="https://d3js.org/d3.v6.js"></script>
+										<div id="global_bar_chart"></div>
+										<script src="charts/page3/bar_charts.js"></script>
 									</div>
 								</div>
 							</section>
