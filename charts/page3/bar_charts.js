@@ -1,87 +1,117 @@
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 20, left: 50},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-var svg = d3.select("#global_bar_chart")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform",`translate(${margin.left},${margin.top})`);
-
-// Parse the Data
-d3.csv("./charts/page3/USA_bar_data.csv").then( function(data) {
-
-    // List of subgroups = header of the csv files = soil condition here
-    var subgroups = data.columns.slice(1)
-
-    // List of groups = species here = value of the first column called group -> I show them on the X axis
-    var groups = data.map(d => d.group)
-
-    console.log(groups)
-
-    // Add X axis
-    var x = d3.scaleBand()
-        .domain(groups)
-        .range([0, width])
-        .padding([0.2])
-    svg.append("g")
-        .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(x).tickSize(0));
-
-    // Add Y axis
-    var y = d3.scaleLinear()
-        .domain([0, 12000])
-        .range([ height, 0 ]);
-    svg.append("g")
-        .call(d3.axisLeft(y));
-
-    // Another scale for subgroup position?
-    var xSubgroup = d3.scaleBand()
-        .domain(subgroups)
-        .range([0, x.bandwidth()])
-        .padding([0.05])
-
-    // color palette = one color per subgroup
-    var color = d3.scaleOrdinal()
-        .domain(subgroups)
-        .range(['#e41a1c','#377eb8','#4daf4a'])
-
-
-    // let legend = d3.legendColor() //make legend using Susie Lu's library
-    //     .ascending(true)
-    //     .title("Time of data")
-    //     .titleWidth(100)
-    //     .scale(color);
-    //
-    // svg.append("g") //draw legend on page
-    //     .attr("transform", "translate(100, 100)")
-    //     .call(legend);
-
-    svg.append("rect").attr("x", 300).attr("y",124).attr("width", 10).attr("height", 10).style("fill", "#e41a1c")
-    svg.append("rect").attr("x", 300).attr("y",154).attr("width", 10).attr("height", 10).style("fill", "#377eb8")
-    svg.append("rect").attr("x", 300).attr("y",184).attr("width", 10).attr("height", 10).style("fill", "#4daf4a")
-    svg.append("text").attr("x", 320).attr("y", 130).text("Feb 2020").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 320).attr("y", 160).text("Feb 2021").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 320).attr("y", 190).text("Oct 2021").style("font-size", "15px").attr("alignment-baseline","middle")
-
-
-    // Show the bars
-    svg.append("g")
+(function () {
+    // set the dimensions and margins of the graph
+    var margin = { top: 10, right: 30, bottom: 20, left: 30 },
+        width = 500 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+    let x = d3.scaleBand()
+        .range([40, 950]);
+    let y = d3.scaleLinear()
+        .domain([0, 250])
+        .range([200, 0]);
+    let color = {
+        "driving": "#1F77B4",
+        "transit": "#2CA02C",
+        "walking": "#FF7F0E"
+    }
+    let svg = d3.select("#bar_chart")
+        .append("svg")
+        .attr("width", 1000)
+        .attr("height", 2000);
+    let text;
+    d3.json("charts/page3/data.json").then(res => {
+        x.domain(Object.keys(res["Australia"]["driving"]));
+        let count = 0;
+        for (let i in res) {
+            draw_bar_chart(res[i], count++, i);
+        }
+        text = svg.append("text")
+            .attr("font-size", "15px");
+    })
+    let gs = svg.append("g")
         .selectAll("g")
-        // Enter in data = loop group per group
-        .data(data)
-        .join("g")
-        .attr("transform", d => `translate(${x(d.group)}, 0)`)
-        .selectAll("rect")
-        .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
-        .join("rect")
-        .attr("x", d => xSubgroup(d.key))
-        .attr("y", d => y(d.value))
-        .attr("width", xSubgroup.bandwidth())
-        .attr("height", d => height - y(d.value))
-        .attr("fill", d => color(d.key));
+        .data(Object.entries(color))
+        .enter()
+        .append("g");
+    gs.append("rect")
+        .attr("x", 880)
+        .attr("y", (_, i) => i * 20)
+        .attr("width", 15)
+        .attr("height", 15)
+        .attr("fill", d => d[1]);
+    gs.append("text")
+        .attr("x", 900)
+        .attr("y", (_, i) => i * 20 + 11)
+        .attr("font-size", "15px")
+        .text(d => d[0]);
+    const annotations = [
+        {
+            //below in makeAnnotations has type set to d3.annotationLabel
+            //you can add this type value below to override that default
+            type: d3.annotationCalloutCircle,
+            note: {
+                label: "during pandemic",
+                title: "peak of transportation",
+                wrap: 190
+            },
+            //settings for the subject, in this case the circle radius
+            subject: {
+                radius: 40
+            },
+            x: 300,
+            y: 100,
+            dy: -50,
+            dx: 102
+        }].map(function (d) { d.color = "#E8336D"; return d });
 
-})
+    function draw_bar_chart(datas, count, country) {
+        let g = svg.append("g")
+            .attr("transform", `translate(0,${count * 250 + 15})`)
+        let index = 0;
+        for (let i in datas) {
+            let data = Object.entries(datas[i]);
+            g.append("g")
+                .selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .style("cursor", "pointer")
+                .on("mouseover", function (e, d) {
+                    text.text(d[1])
+                        .attr("x", e.layerX)
+                        .attr("y", e.layerY - 10);
+                })
+                .on("mouseleave", function (e, d) {
+                    text.text('')
+                })
+                .attr("fill", color[i])
+                .attr("x", d => x(d[0]) + index * 11)
+                .attr("y", d => y(d[1]))
+                .attr("width", 10)
+                .attr("height", d => 200 - y(d[1]));
+            index += 1;
+        }
+        g.append("text")
+            .attr("y", 20)
+            .attr("x", 45)
+            .text(country);
+        g.append("g")
+            .attr("transform", "translate(0,200)")
+            .call(d3.axisBottom().scale(x));
+        g.append("g")
+            .attr("transform", "translate(40,0)")
+            .call(d3.axisLeft().scale(y));
+        g.append("text")
+            .attr("font-size", "10px")
+            .text("population")
+            .attr("x", 0)
+            .attr("y", -5);
+        const makeAnnotations = d3.annotation()
+            .type(d3.annotationLabel)
+            .annotations(annotations)
+
+        g
+            .append("g")
+            .attr("class", "annotation-group")
+            .call(makeAnnotations)
+    }
+})()

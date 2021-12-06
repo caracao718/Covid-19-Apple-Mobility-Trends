@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://d3js.org/d3.v6.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = {};
+        d3.csv("./index.csv").then(res=>{
+            console.log(res);
+            res.forEach(d=>{
+                data[d.region] = data[d.region] || {};
+                let type = d.transportation_type;
+                data[d.region][type] = data[d.region][type] || {};
+                for(let i in d){
+                    if(i=="transportation_type" || i=="region" || i=="geo_type"){
+                        continue;
+                    }
+                    let key = i.substr(0,i.lastIndexOf("/"));
+                    data[d.region][type][key] = data[d.region][key] || 0;
+                    data[d.region][type][key] += parseFloat(d[i])
+                }
+            })
+            console.log(data)
+            console.log(JSON.stringify(data))
+        })
+    </script>
+</body>
+</html>
