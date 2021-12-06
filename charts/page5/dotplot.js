@@ -21,7 +21,12 @@
             .attr("transform", "translate(150,0)")
             .call(d3.axisLeft(y).ticks(0));
 
-        svg.append("rect").attr("x", 140).attr("y", 50).attr("width", 10).attr("height", 10).style("fill", "#b2e2e2")
+        svg.append("rect")
+            .attr("x", 800)
+            .attr("y", 50)
+            .attr("width", 10)
+            .attr("height", 10)
+            .style("fill", "#b2e2e2")
 
         let gs = svg.selectAll(".dot")
             .data(data)
