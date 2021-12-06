@@ -50,7 +50,7 @@
             type: d3.annotationCalloutCircle,
             note: {
                 label: "during pandemic",
-                title: "peak of transportation",
+                title: "a common peak",
                 wrap: 190
             },
             //settings for the subject, in this case the circle radius

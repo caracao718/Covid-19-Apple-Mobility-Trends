@@ -22,28 +22,28 @@
             .call(d3.axisLeft(y).ticks(0));
 
         svg.append("circle")
-            .attr("cx", 700)
+            .attr("cx", 650)
             .attr("cy", 40)
-            .attr("r", 20)
-            .style("fill", "blue")
+            .attr("r", 8)
+            .style("fill", "blue");
         svg.append("circle")
-            .attr("cx", 700)
+            .attr("cx", 650)
             .attr("cy", 60)
-            .attr("r", 20)
-            .style("fill", "red")
+            .attr("r", 8)
+            .style("fill", "red");
 
         svg.append("text")
-            .attr("x", 740)
+            .attr("x", 670)
             .attr("y", 40)
             .text("Feb 2021")
             .style("font-size", "15px")
-            .attr("alignment-baseline", "middle")
+            .attr("alignment-baseline", "middle");
         svg.append("text")
-            .attr("x", 740)
+            .attr("x", 670)
             .attr("y", 60)
             .text("Oct 2021")
             .style("font-size", "15px")
-            .attr("alignment-baseline", "middle")
+            .attr("alignment-baseline", "middle");
 
 
         let gs = svg.selectAll(".dot")
