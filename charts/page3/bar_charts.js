@@ -61,7 +61,7 @@
             y: 100,
             dy: -50,
             dx: 102
-        }].map(function (d) { d.color = "#E8336D"; return d });
+        }].map(function (d) { d.color = "#6baed6"; return d });
 
     function draw_bar_chart(datas, count, country) {
         let g = svg.append("g")
