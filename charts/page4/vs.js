@@ -42,11 +42,12 @@
         // color palette = one color per subgroup
         const color = d3.scaleOrdinal()
             .domain(subgroups)
-            .range(['#e41a1c', '#377eb8', '#4daf4a'])
+            .range(['#b2e2e2', '#66c2a4', '#238b45'])
+            // .range(['#e41a1c', '#377eb8', '#4daf4a'])
 
-        svg.append("rect").attr("x", 300).attr("y", 124).attr("width", 10).attr("height", 10).style("fill", "#e41a1c")
-        svg.append("rect").attr("x", 300).attr("y", 154).attr("width", 10).attr("height", 10).style("fill", "#377eb8")
-        svg.append("rect").attr("x", 300).attr("y", 184).attr("width", 10).attr("height", 10).style("fill", "#4daf4a")
+        svg.append("rect").attr("x", 300).attr("y", 124).attr("width", 10).attr("height", 10).style("fill", "#b2e2e2")
+        svg.append("rect").attr("x", 300).attr("y", 154).attr("width", 10).attr("height", 10).style("fill", "#66c2a4")
+        svg.append("rect").attr("x", 300).attr("y", 184).attr("width", 10).attr("height", 10).style("fill", "#238b45")
         svg.append("text").attr("x", 320).attr("y", 130).text("Feb 2020").style("font-size", "15px").attr("alignment-baseline", "middle")
         svg.append("text").attr("x", 320).attr("y", 160).text("Feb 2021").style("font-size", "15px").attr("alignment-baseline", "middle")
         svg.append("text").attr("x", 320).attr("y", 190).text("Oct 2021").style("font-size", "15px").attr("alignment-baseline", "middle")
@@ -110,11 +111,12 @@
         // color palette = one color per subgroup
         const color = d3.scaleOrdinal()
             .domain(subgroups)
-            .range(['#e41a1c', '#377eb8', '#4daf4a'])
+            .range(['#b2e2e2', '#66c2a4', '#238b45'])
+            // .range(['#e41a1c', '#377eb8', '#4daf4a'])
 
-        svg.append("rect").attr("x", 300).attr("y", 124).attr("width", 10).attr("height", 10).style("fill", "#e41a1c")
-        svg.append("rect").attr("x", 300).attr("y", 154).attr("width", 10).attr("height", 10).style("fill", "#377eb8")
-        svg.append("rect").attr("x", 300).attr("y", 184).attr("width", 10).attr("height", 10).style("fill", "#4daf4a")
+        svg.append("rect").attr("x", 300).attr("y", 124).attr("width", 10).attr("height", 10).style("fill", "#b2e2e2")
+        svg.append("rect").attr("x", 300).attr("y", 154).attr("width", 10).attr("height", 10).style("fill", "#66c2a4")
+        svg.append("rect").attr("x", 300).attr("y", 184).attr("width", 10).attr("height", 10).style("fill", "#238b45")
         svg.append("text").attr("x", 320).attr("y", 130).text("Feb 2020").style("font-size", "15px").attr("alignment-baseline", "middle")
         svg.append("text").attr("x", 320).attr("y", 160).text("Feb 2021").style("font-size", "15px").attr("alignment-baseline", "middle")
         svg.append("text").attr("x", 320).attr("y", 190).text("Oct 2021").style("font-size", "15px").attr("alignment-baseline", "middle")
