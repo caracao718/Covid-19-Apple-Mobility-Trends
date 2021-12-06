@@ -39,7 +39,7 @@
             .on("mouseover",function(e,d){
                 d3.select(this)
                     .attr("r",8);
-                text.text(`during pandemic:${d.value[0]}`)
+                text.text(`after vaccine:${d.value[0]}`)
                     .attr("x",e.layerX)
                     .attr("y",e.layerY-10);
             })
@@ -57,7 +57,7 @@
             .on("mouseover",function(e,d){
                 d3.select(this)
                     .attr("r",8);
-                text.text(`post pandemic ${d.value[1]}`)
+                text.text(`before vaccine ${d.value[1]}`)
                     .attr("x",e.layerX)
                     .attr("y",e.layerY-10);
             })
