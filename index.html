@@ -22,8 +22,8 @@
 		<header>
 <!--			<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>-->
 			<h1 id="logo"><a href="#">Cara Cao</a></h1>
-			<p>A visualization project that shows people's mobility choices<br />
-				before and after the COVID-19 pandemic</p>
+			<p>A visualization project about people's mobility choices<br />
+				during the COVID-19 pandemic</p>
 		</header>
 		<nav id="nav">
 			<ul>
@@ -32,7 +32,7 @@
 				<li><a href="#three">Bar Charts</a></li>
 				<li><a href="#four">Global vs. USA</a></li>
 				<li><a href="#five">Dot Plot</a></li>
-				<li><a href="#six">HeatMap</a></li>
+				<li><a href="#six">Conclusion</a></li>
 			</ul>
 		</nav>
 		<footer>
@@ -60,12 +60,8 @@
 				<div class="container">
 					<header class="major">
 						<h2>Covid-19 Mobility Trend</h2>
-
+						<h3> Data from <a href="https://covid19.apple.com/mobility">apple.com</a></h3>
 					</header>
-					<p>Reports:<br />
-						Alpha Release <a
-								href="https://docs.google.com/document/d/1_fDgFOP6_adnqjLbse38_bQE9KIJMrOz0BtBaMtX0k8/edit?usp=sharing">report</a>.
-					</p>
 					<p>Covid19 has been seriously affecting people’s daily life for 2 years. A lot of people’s
 						transportation choice has changed due to the pandemic. Personally, before I moved to San
 						Francisco in August 2021, I used to commute and travel using public transportation in New York
@@ -77,6 +73,9 @@
 						motivation for selecting this project is that I would like to know if people in the USA feels
 						the same as me — less public transportation during the pandemic. It will also be interesting to
 						know that to what extend covid has influenced people’s transportation decisions.</p>
+					<p>Reports:<br />
+						Alpha Release <a href="https://docs.google.com/document/d/1_fDgFOP6_adnqjLbse38_bQE9KIJMrOz0BtBaMtX0k8/edit?usp=sharing">report</a>.
+					</p>
 					<div id="timeline">
 
 					</div>
@@ -94,7 +93,8 @@
 					<script src="charts/page2/line_chart.js"></script>
 				</div>
 				<div class="container">
-					<p>An animated Pie chart that shows the change in Transit percentage between 2020 and 2021</p>
+					<h3>Percent change in each type of transportation</h3>
+					<p>An animated Pie chart that shows the CHANGE in Transit percentage between 2020 and 2021</p>
 					<button onclick="update(data1)">2020</button>
 					<button onclick="update(data2)">2021</button>
 					<div id="pie_chart"></div>
@@ -138,12 +138,24 @@
 			<section id="five">
 				<div class="container">
 					<h2>Public Transit Dot Plot</h2>
-					<h3>before and after most people got 2 dose of Covid vaccination</h3>
+					<p>BEFORE and AFTER most people got 2 doses of Covid vaccination</p>
 					<div id="dotplot"></div>
 				</div>
 			</section>
 			<script src="./charts/page5/dotplot.js"></script>
-			
+
+			<!-- Six -->
+			<section id="six">
+				<div class="container">
+					<h2>Conclusion</h2>
+					<p>Covid has significantly affected people's transportation frequency and transportation type.
+						The amount of public transit usage has decreased during the pandemic (especially before most people
+						got the vaccine shots). <br/>
+						Also, the overall transportation frequency has increased after the time period when most people got
+						the vaccine shots. By this, we can assume that people feel safer after getting the vaccination.
+					</p>
+				</div>
+			</section>
 
 		</div>
 
