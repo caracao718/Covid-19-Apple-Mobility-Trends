@@ -28,20 +28,20 @@
             .style("fill", "blue");
         svg.append("circle")
             .attr("cx", 650)
-            .attr("cy", 60)
+            .attr("cy", 65)
             .attr("r", 8)
             .style("fill", "red");
 
         svg.append("text")
             .attr("x", 670)
             .attr("y", 40)
-            .text("Feb 2021")
+            .text("Before Vaccination (Feb 2021)")
             .style("font-size", "15px")
             .attr("alignment-baseline", "middle");
         svg.append("text")
             .attr("x", 670)
-            .attr("y", 60)
-            .text("Oct 2021")
+            .attr("y", 65)
+            .text("After Vaccination (Oct 2021)")
             .style("font-size", "15px")
             .attr("alignment-baseline", "middle");
 

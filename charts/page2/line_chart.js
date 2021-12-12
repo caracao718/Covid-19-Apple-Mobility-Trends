@@ -75,7 +75,7 @@
         .text("population")
         .attr("x",-50)
         .attr("y",-10)
-        .attr("font-size","10px")
+        .attr("font-size","15px")
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));

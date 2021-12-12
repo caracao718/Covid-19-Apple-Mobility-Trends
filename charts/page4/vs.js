@@ -24,7 +24,9 @@
             .padding([0.2])
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
-            .call(d3.axisBottom(x).tickSize(0));
+            .call(d3.axisBottom(x).tickSize(0))
+            .attr("font-size", "17px");
+
 
         // Add Y axis
         const y = d3.scaleLinear()
@@ -93,7 +95,8 @@
             .padding([0.2])
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
-            .call(d3.axisBottom(x).tickSize(0));
+            .call(d3.axisBottom(x).tickSize(0))
+            .attr("font-size", "17px");
 
         // Add Y axis
         const y = d3.scaleLinear()
