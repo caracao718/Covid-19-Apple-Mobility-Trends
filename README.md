@@ -11,7 +11,7 @@ does Covid affected people’s transportation frequency and type.
 
 ## Table of Contents
  - [Features](#features)
- - [data link](#link)
+ - [Data Link](#link)
  - [Instructions](#instructions)
  - [For the Future](#for-the-future)
  - [Project Maintainers](#project-maintainers)
@@ -41,7 +41,7 @@ does Covid affected people’s transportation frequency and type.
 Go to GitHub Pages in the Link session, and view the website.
 
 ## For the Future
-Please don't hesitate to open a [issue] (https://github.com/caracao718/Covid-19-Apple-Mobility-Trends/issues)
+Please don't hesitate to open a [issue](https://github.com/caracao718/Covid-19-Apple-Mobility-Trends/issues)
 
 ## Project Maintainer(s)
 Cara Cao
