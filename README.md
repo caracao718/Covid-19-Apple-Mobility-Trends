@@ -10,11 +10,11 @@ The purpose of this project is using data visualization to visualize to what ext
 does Covid affected people’s transportation frequency and type.
 
 ## Table of Contents
- - [Features] (#features)
- - [data link] (#link)
- - [Instructions] (#instructions)
- - [For the Future] (#for-the-future)
- - [Project Maintainers] (#project-maintainers)
+ - [Features](#features)
+ - [data link](#link)
+ - [Instructions](#instructions)
+ - [For the Future](#for-the-future)
+ - [Project Maintainers](#project-maintainers)
 
 ## Features
  + The differences in the overall mobility of people during the pandemic
@@ -24,8 +24,8 @@ does Covid affected people’s transportation frequency and type.
  + Usage of different transportation methods globally and in the USA
 
 ## Link
- + [GitHub Pages] (https://caracao718.github.io/Covid-19-Apple-Mobility-Trends/)
- + [Data source] (https://covid19.apple.com/mobility)
+ + [GitHub Pages](https://caracao718.github.io/Covid-19-Apple-Mobility-Trends/)
+ + [Data source](https://covid19.apple.com/mobility)
 
 ## Instructions
 
